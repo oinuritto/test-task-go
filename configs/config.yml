@@ -1,0 +1,15 @@
+server:
+  port: "8080"
+
+db:
+  username: "postgres"
+  host: "localhost"
+  port: "5431"
+  name: "postgres"
+  sslmode: "disable"
+  password: ""
+
+jwt:
+  secret: "secret"
+  access_token_ttl: "15m"
+  refresh_token_ttl: "24h"

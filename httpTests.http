@@ -1,0 +1,24 @@
+### post sign up
+POST http://localhost:8080/sign-up
+Content-Type: application/json
+
+{
+  "email": "ainursabitovak@mail.ru",
+  "password": "123456"
+}
+
+### auth token
+POST http://localhost:8080/token/auth
+Content-Type: application/json
+
+{
+    "id": "5de34bf3-b743-4286-864c-d54bf9eef81b"
+}
+
+### refresh token
+POST http://localhost:8080/token/refresh
+Content-Type: application/json
+
+{
+  "refreshToken": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3Mjg3NDQ2MDAsImlhdCI6MTcyODc0NDYwMCwidXNlcl9pZCI6IjI5ZTAxMzMxLTA3YTktNDYyZS04NTk2LTQxNzIyZDFhMzI2ZSIsImlwIjoiMTcyLjMwLjAuMSJ9.V3qj3tWEkSS7BDTlr91HYTTA2iPGIbcpzc1h2-KgapO4hUzEhqPjWQDoDSsA3DdQEGkZgKDnQ7LoAVJvd0LVHA"
+}

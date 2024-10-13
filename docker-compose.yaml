@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  app:
+    build: ./
+    ports:
+      - "80:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: testTaskDB
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      JWT_SECRET: secret
+
+  db:
+    restart: always
+    image: postgres:latest
+    volumes:
+#      - ./.database/postgres/data:/var/lib/postgresql/data
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: testTaskDB
+      POSTGRES_USER: postgres
+    ports:
+      - "5430:5432"
+    healthcheck:
+      test: pg_isready -U postgres
+      interval: 10s
+      timeout: 5s
+      retries: 5
